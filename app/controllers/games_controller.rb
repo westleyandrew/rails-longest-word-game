@@ -8,8 +8,7 @@ class GamesController < ApplicationController
     10.times do
       @letters << @alphabet.sample
     end
-      session[:current_score] = 0
-      binding.pry
+      session[:current_score] = 0 if session[:current_score].nil?
   end
 
   def score
@@ -36,6 +35,7 @@ class GamesController < ApplicationController
 
     if word_ok && @return_text == ''
       @return_text = "Congratulations. #{@word} is a valid english word!"
+      session[:current_score] += @word.length
     elsif @return_text == ''
       @return_text = "Sorry but #{@word} is not a valid english word"
     end
