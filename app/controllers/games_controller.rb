@@ -8,6 +8,8 @@ class GamesController < ApplicationController
     10.times do
       @letters << @alphabet.sample
     end
+      session[:current_score] = 0
+      binding.pry
   end
 
   def score
