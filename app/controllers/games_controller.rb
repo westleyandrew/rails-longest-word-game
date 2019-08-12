@@ -22,7 +22,7 @@ class GamesController < ApplicationController
     end
 
     @word_array.each do |letter|
-      if @word_array.count(letter) <= @letters.count(letter)
+      if @word_array.count(letter) > @letters.count(letter)
         @return_text = "Sorry but #{@word} cannot be made out of #{@letters}"
       end
     end
